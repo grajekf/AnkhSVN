@@ -64,7 +64,7 @@ namespace Ankh.GenerateVSIXManifest
                 xw.WriteElementString("AllUsers", "true");
 
                 xw.WriteStartElement("SupportedProducts", vsix2010);
-                foreach (string version in new string[] { "10.0", "11.0", "12.0", "14.0" })
+                foreach (string version in new string[] { "10.0", "11.0", "12.0", "14.0", "16.0" })
                 {
                     xw.WriteStartElement("VisualStudio", vsix2010);
                     xw.WriteAttributeString("Version", version);
@@ -79,7 +79,7 @@ namespace Ankh.GenerateVSIXManifest
 
                 xw.WriteStartElement("SupportedFrameworkRuntimeEdition", vsix2010);
                 xw.WriteAttributeString("MinVersion", "2.0");
-                xw.WriteAttributeString("MaxVersion", "4.6");
+                xw.WriteAttributeString("MaxVersion", "4.7.2");
                 xw.WriteEndElement(); // /SupportedFrameworkRuntimeEdition
 
                 xw.WriteEndElement(); // /Identifier

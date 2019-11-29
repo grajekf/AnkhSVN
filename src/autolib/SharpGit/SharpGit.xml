@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>SharpGit</name>
+  </assembly>
+  <members>
+    <member name="M:SharpGit.GitTools.PathCombine(System.String,System.String)">
+      <summary>Long path capable version of <see cref="M:System.IO.Path.Combine(System.String,System.String)" /></summary>
+    </member>
+    <member name="M:SharpGit.GitTools.GetNormalizedDirectoryName(System.String)">
+      <summary>Gets the normalized directory name of path (Long path enabled version of <see cref="M:System.IO.Path.GetDirectoryName(System.String)" />, always returning full paths)</summary>
+      <returns>Directory information for path, or null if path denotes a root directory or is null. Returns String.Empty if path does not contain directory information.</returns>
+    </member>
+    <member name="M:SharpGit.GitTools.IsAbsolutePath(System.String)">
+      <summary>
+Checks whether the specified path is an absolute path that doesn't end in an unneeded '\'
+</summary>
+    </member>
+    <member name="M:SharpGit.GitTools.IsNormalizedFullPath(System.String)">
+      <summary>
+Checks whether normalization is required
+</summary>
+      <remarks>This method does not verify the casing of invariant parts</remarks>
+    </member>
+    <member name="M:SharpGit.GitTools.GetNormalizedFullPath(System.String)">
+      <summary>
+Normalizes the path to a full path
+</summary>
+      <summary>This normalizes drive letters to upper case and hostnames to lowercase to match Subversion 1.6 behavior</summary>
+    </member>
+    <member name="M:SharpGit.GitTools.IsBelowManagedPath(System.String)">
+      <summary>Gets a boolean indicating whether at least one of the
+parent paths or the path (file/directory) itself is a working copy.
+</summary>
+    </member>
+    <member name="M:SharpGit.GitTools.IsManagedPath(System.String)">
+      <summary>Gets a boolean indicating whether the path could contain a Subversion Working Copy</summary>
+      <remarks>Assumes path is a directory</remarks>
+    </member>
+    <member name="M:SharpGit.GitTools.GetTruePath(System.String,System.Boolean)">
+      <summary>Gets the absolute pathname exactly like it is on disk (fixing casing).
+For not existing paths, if bestEffort is TRUE, returns a path based on existing parents. Otherwise return NULL for not existing paths</summary>
+    </member>
+    <member name="M:SharpGit.GitTools.GetTruePath(System.String)">
+      <summary>Gets the absolute pathname exactly like it is on disk (fixing casing); returns NULL for non existing paths</summary>
+    </member>
+    <member name="P:SharpGit.GitMergeAnalysis.IsUnborn">
+      <summary>
+The HEAD of the current repository is "unborn" and does not point to
+a valid commit.  No merge can be performed, but the caller may wish
+to simply set HEAD to the target commit(s).
+</summary>
+    </member>
+    <member name="P:SharpGit.GitMergeAnalysis.CanFastForward">
+      <summary>
+The given merge input is a fast-forward from HEAD and no merge
+needs to be performed.  Instead, the client can check out the
+given merge input.
+</summary>
+    </member>
+    <member name="P:SharpGit.GitMergeAnalysis.IsUpToDate">
+      <summary>
+All given merge inputs are reachable from HEAD, meaning the
+repository is up-to-date and no merge needs to be performed.
+</summary>
+    </member>
+    <member name="P:SharpGit.GitMergeAnalysis.CanMergeNormal">
+      <summary>
+A "normal" merge; both HEAD and the given merge input have diverged
+from their common ancestor.  The divergent commits must be merged.
+</summary>
+    </member>
+    <member name="T:SharpGit.GitCheckOutConflictStrategy">
+      <summary>
+Enum specifying what content checkout should write to disk
+for conflicts.
+</summary>
+      <threadsafety static="true" instance="false" />
+    </member>
+    <member name="F:SharpGit.GitCheckOutConflictStrategy.Diff3">
+      <summary>
+Write diff3 formated files for conflicts.
+</summary>
+    </member>
+    <member name="F:SharpGit.GitCheckOutConflictStrategy.Merge">
+      <summary>
+Write normal merge files for conflicts.
+</summary>
+    </member>
+    <member name="F:SharpGit.GitCheckOutConflictStrategy.UseTheirs">
+      <summary>
+For conflicting files, checkout the "theirs" (stage 3) version of
+the file from the index.
+</summary>
+    </member>
+    <member name="F:SharpGit.GitCheckOutConflictStrategy.UseOurs">
+      <summary>
+For conflicting files, checkout the "ours" (stage 2)  version of
+the file from the index.
+</summary>
+    </member>
+    <member name="F:SharpGit.GitCheckOutConflictStrategy.Default">
+      <summary>
+Use the default behavior for handling file conflicts. This is
+controlled by the merge.conflictstyle config option, and is "Merge"
+if no option is explicitly set.
+</summary>
+    </member>
+    <member name="M:SharpGit.Plumbing.GitBranch.RecordAsHeadBranch(SharpGit.GitClientArgs)">
+      <summary>Marks this branch as the currently checked out HEAD branch</summary>
+    </member>
+    <member name="P:SharpGit.Plumbing.GitCommit.AncestorsAndSelf">
+      <summary>Get an enumerator over this nodes ancestors, starting by this node itself</summary>
+    </member>
+    <member name="P:SharpGit.Plumbing.GitCommit.Ancestors">
+      <summary>Get an enumerator over this nodes ancestors, starting by the parent of this commit</summary>
+    </member>
+    <member name="P:SharpGit.Plumbing.GitCommit.Ancestor">
+      <summary>Get the first ancestor/first parent of this commit</summary>
+    </member>
+    <member name="P:SharpGit.GitException.Error">
+      <summary>Gets the raw subversion error code</summary>
+    </member>
+    <member name="F:SharpGit.Plumbing.GitObjectKind.DeltaOffset">
+      <summary>GIT_OBJ_OFS_DELTA</summary>
+    </member>
+    <member name="F:SharpGit.Plumbing.GitObjectKind.Ext5">
+      <summary>Reserved</summary>
+    </member>
+    <member name="F:SharpGit.Plumbing.GitObjectKind.Ext0">
+      <summary>Reserved</summary>
+    </member>
+    <member name="F:SharpGit.Plumbing.GitObjectKind.Bad">
+      <summary>Object is invalid</summary>
+    </member>
+    <member name="F:SharpGit.Plumbing.GitObjectKind.Any">
+      <summary>Object can be any of the following</summary>
+    </member>
+    <member name="P:SharpGit.Plumbing.GitIndexEntry.Id">
+      <summary>Id of blob</summary>
+    </member>
+    <member name="T:SharpGit.Plumbing.GitIndexStage">
+      <summary>Disambiguates the different versions of an index entry during a merge.</summary>
+      <threadsafety static="true" instance="false" />
+    </member>
+    <member name="F:SharpGit.Plumbing.GitIndexStage.Theirs">
+      <summary>Version of the entry as it is in the commit being merged.</summary>
+    </member>
+    <member name="F:SharpGit.Plumbing.GitIndexStage.Ours">
+      <summary>Version of the entry as it is in the commit of the Head.</summary>
+    </member>
+    <member name="F:SharpGit.Plumbing.GitIndexStage.Ancestor">
+      <summary>Version of the entry as it was in the common base merge commit.</summary>
+    </member>
+    <member name="F:SharpGit.Plumbing.GitIndexStage.Normal">
+      <summary>The standard fully merged state for an index entry.</summary>
+    </member>
+    <member name="P:SharpGit.GitStatusArgs.GenerateVersionedDirs">
+      <summary>Generates reports for versioned directories</summary>
+    </member>
+    <member name="P:SharpGit.Plumbing.GitRemote.DefaultBranch">
+      <summary>When connected: Provides the default branch</summary>
+    </member>
+    <member name="M:SharpGit.Plumbing.GitRepository.CleanupState(SharpGit.GitArgs)">
+      <summary>Remove all the metadata associated with an ongoing command like merge, revert, cherry-pick, etc.</summary>
+    </member>
+    <member name="M:SharpGit.Plumbing.GitRepository.CleanupState">
+      <summary>Remove all the metadata associated with an ongoing command like merge, revert, cherry-pick, etc.</summary>
+    </member>
+    <member name="M:SharpGit.Plumbing.GitRepository.Open(System.String)">
+      <summary>Opens the repository at REPOSITORYPATH</summary>
+    </member>
+    <member name="M:SharpGit.Plumbing.GitRepository.Locate(System.String)">
+      <summary>Opens the repository containing PATH</summary>
+    </member>
+    <member name="M:SharpGit.Plumbing.GitRepository.#ctor(System.String)">
+      <summary>Creates an unopened repository and then calls Open(REPOSITORYPATH)</summary>
+    </member>
+    <member name="M:SharpGit.Plumbing.GitRepository.#ctor">
+      <summary>Creates an unopened repository</summary>
+    </member>
+    <member name="P:SharpGit.GitClient.SharpGitVersion">
+      <summary>Gets the SharpGit version</summary>
+    </member>
+    <member name="P:SharpGit.GitClient.Version">
+      <summary>Gets the libgit2 version</summary>
+    </member>
+    <member name="M:SharpGit.GitClient.Add(System.String,SharpGit.GitStageArgs)">
+      <summary>Alias for .Stage()</summary>
+    </member>
+    <member name="M:SharpGit.GitClient.Add(System.String)">
+      <summary>Alias for .Stage()</summary>
+    </member>
+    <member name="T:SharpGit.GitClient">
+      <summary>Git client instance; main entrance to the SharpGit Client api</summary>
+      <threadsafety static="true" instance="false" />
+    </member>
+    <member name="P:SharpGit.GitSignature.EmailAddress">
+      <summary>The email address. When using for commit preparation NULL represents the configured value</summary>
+    </member>
+    <member name="P:SharpGit.GitSignature.Name">
+      <summary>The user name. When using for commit preparation NULL represents the configured value</summary>
+    </member>
+    <member name="P:SharpGit.GitSignature.When">
+      <summary>When the signature was added (as/auto-converted as GMT DateTime)</summary>
+    </member>
+  </members>
+</doc>

@@ -5,6 +5,8 @@
     <MinVsVersion>10.0</MinVsVersion>
     <AnkhIsThunk>false</AnkhIsThunk>
     <BaseIntermediateOutputPath>V4_obj\</BaseIntermediateOutputPath>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <Import Project="../tools/Ankh-Common.targets" />
   <Import Project="..\Ankh.VS.VersionThunk\Ankh.VS.VersionThunk.csproj" />

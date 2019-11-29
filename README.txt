@@ -1,3 +1,11 @@
+Fork of https://github.com/simonp22/AnkhSVN
+
+Modified for Visual Studio 2019 support.
+
+To work correctly, the "Optimize rendering for screens with different pixel densities" options need to be turned off.
+There are still some bugs with themes, to solve them just close the problematic windows and restart Visual Studio.
+
+
           AnkhSVN - Subversion support for Visual Studio
           ==============================================
 
